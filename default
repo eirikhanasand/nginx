@@ -86,11 +86,7 @@ server {
 
     location / {
         proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 
@@ -104,11 +100,7 @@ server {
 
     location / {
         proxy_pass http://localhost:3002;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -121,11 +113,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8080;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -138,11 +126,7 @@ server {
 
     location / {
         proxy_pass http://localhost:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -155,11 +139,7 @@ server {
 
     location / {
 	    proxy_pass http://localhost:8300;
-        proxy_http_version 1.1;
-	    proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -172,11 +152,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8301;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -189,11 +165,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8400;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -206,11 +178,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8401;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -223,11 +191,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -240,11 +204,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8100;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -257,11 +217,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8101;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -275,11 +231,7 @@ server {
 
     location / {
         proxy_pass http://localhost:25565;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 }
 
@@ -291,11 +243,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8100;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -308,11 +256,7 @@ server {
 
     location / {
         proxy_pass http://localhost:6969;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 
 }
@@ -326,11 +270,7 @@ server {
 
     location / {
         proxy_pass http://localhost:8501;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
+        include snippets/proxy-headers.conf;
     }
 }
 
