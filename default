@@ -255,6 +255,10 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com-0002/privkey.pem; # managed by Certbot
 
     location / {
+        if ($http_user_agent !~* "java") {
+            return 401;
+        }
+
         proxy_pass http://localhost:6969;
         include snippets/proxy-headers.conf;
     }
