@@ -17,8 +17,8 @@ server {
     listen 443 ssl;
     server_name api.pengeflyt.com;
 
-    ssl_certificate /etc/letsencrypt/live/api.pengeflyt.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/api.pengeflyt.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
 
     location / {
         proxy_pass http://localhost:8080;
@@ -39,6 +39,10 @@ server {
 server {
     listen 443 ssl default_server;
     server_name _;
+
+    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
+
 
     return 301 https://$host$request_uri;
 }
