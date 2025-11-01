@@ -1,77 +1,49 @@
 server {
-    if ($host = hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+    listen 80;
+    listen [::]:80;
 
-    if ($host = www.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+    server_name cashflow.hanasand.com;
+    return 301 https://pengeflyt.com$request_uri;
+}
 
-    if ($host = name-pending-server.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+server {
+    listen 80;
+    listen [::]:80;
 
-    if ($host = name-pending.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+    server_name api.cashflow.hanasand.com;
+    return 301 https://api.pengeflyt.com$request_uri;
+}
 
-    if ($host = idk-api.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = idk.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = lsm-api.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = lsm.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = gitlab.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = speedrun-api.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = speedrun.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = eirik.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = api.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = docs.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = cdn.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-    if ($host = cashflow.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+server {
+    listen 80;
+    listen [::]:80;
 
     server_name *.hanasand.com;
-
     return 301 https://$host$request_uri;
+}
 
-    listen 443 ssl; # managed by Certbot
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
     ssl_certificate /etc/letsencrypt/live/hanasand.com-0001/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com-0001/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+    server_name cashflow.hanasand.com;
+    return 301 https://pengeflyt.com$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    ssl_certificate /etc/letsencrypt/live/hanasand.com-0001/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/hanasand.com-0001/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+    server_name api.cashflow.hanasand.com;
+    return 301 https://api.pengeflyt.com$request_uri;
 }
 
 server {
@@ -84,8 +56,6 @@ server {
         proxy_pass http://localhost:3000;
         include snippets/proxy-headers.conf;
     }
-
-
 }
 
 server {
@@ -276,13 +246,12 @@ server {
 
 server {
     listen 443 ssl;
-    server_name cashflow.hanasand.com;
+    listen [::]:443 ssl;
+    ssl_certificate /etc/letsencrypt/live/hanasand.com-0001/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/hanasand.com-0001/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
-
-    location / {
-        proxy_pass http://localhost:10001;
-        include snippets/proxy-headers.conf;
-    }
+    server_name *.hanasand.com;
+    return 301 https://hanasand.com;
 }

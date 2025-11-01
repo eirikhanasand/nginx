@@ -1,25 +1,25 @@
 server {
-    if ($host = pengeflyt.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+    listen 80;
+    listen [::]:80;
 
-    if ($host = www.pengeflyt.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+    server_name api.pengeflyt.com;
+    return 301 https://api.pengeflyt.com$request_uri;
+}
 
-    if ($host = api.pengeflyt.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name www.pengeflyt.com;
+    return 301 https://www.pengeflyt.com$request_uri;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
 
     server_name *.pengeflyt.com;
-
-    return 301 https://$host$request_uri;
-
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    return 301 https://pengeflyt.com$request_uri;
 }
 
 server {
