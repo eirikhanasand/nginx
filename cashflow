@@ -21,7 +21,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem; # managed by Certbot
 
     location / {
-        access_log /tmp/nginx-proxy-access.log proxy;
+        access_log /tmp/nginx-proxy-access.log;
         proxy_pass http://localhost:10001;
         include snippets/proxy-headers.conf;
     }
