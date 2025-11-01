@@ -1,0 +1,10 @@
+# temp to create cert
+server {
+    listen 80;
+    server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
+
+    location / {
+        proxy_pass http://localhost:10001;
+        include snippets/proxy-headers.conf;
+    }
+}

@@ -289,19 +289,8 @@ server {
 
 server {
     listen 443 ssl;
-    server_name pengeflyt.com;
+    server_name pengeflyt.com api.pengeflyt.com www.pengeflyt.com;
     proxy_ssl_verify off;
-
-    location / {
-        proxy_pass http://localhost:10001;
-        include snippets/proxy-headers.conf;
-    }
-}
-
-# temp to create cert
-server {
-    listen 80;
-    server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
 
     location / {
         proxy_pass http://localhost:10001;

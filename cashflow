@@ -11,7 +11,11 @@ server {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
-    server_name pengeflyt.com cashflow.hanasand.com;
+    if ($host = api.pengeflyt.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    server_name cashflow.hanasand.com pengeflyt.com www.pengeflyt.com api.cashflow.com;
 
     return 301 https://$host$request_uri;
 
@@ -35,17 +39,6 @@ server {
 
 server {
     listen 443 ssl;
-    server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
-
-    location / {
-        proxy_pass http://localhost:10001;
-        include snippets/proxy-headers.conf;
-    }
-}
-
-# temp to create cert
-server {
-    listen 80;
     server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
 
     location / {
