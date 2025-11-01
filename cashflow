@@ -27,11 +27,8 @@ server {
 }
 
 server {
-    listen 443 ssl;
+    listen 80;
     server_name cashflow.hanasand.com;
-
-    ssl_certificate /etc/letsencrypt/live/cashflow.hanasand.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/cashflow.hanasand.com/privkey.pem;
 
     location / {
         proxy_pass http://localhost:3000;
