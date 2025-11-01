@@ -297,3 +297,12 @@ server {
         include snippets/proxy-headers.conf;
     }
 }
+
+server {
+    listen 80;
+    server_name pengeflyt.com www.pengeflyt.com;
+    location / {
+        proxy_pass http://localhost:10001;
+        include snippets/proxy-headers.conf;
+    }
+}
