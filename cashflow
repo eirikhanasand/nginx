@@ -1,48 +1,47 @@
 server {
-    if ($host = cashflow.hanasand.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+    listen 443 ssl;
+    server_name pengeflyt.com www.pengeflyt.com;
 
-    if ($host = pengeflyt.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
-    if ($host = www.pengeflyt.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+    location / {
+        proxy_pass http://localhost:3000;
+        include snippets/proxy-headers.conf;
+    }
+}
 
-    if ($host = api.pengeflyt.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
+server {
+    listen 443 ssl;
+    server_name api.pengeflyt.com;
 
-    server_name cashflow.hanasand.com pengeflyt.com www.pengeflyt.com api.cashflow.com;
+    ssl_certificate /etc/letsencrypt/live/api.pengeflyt.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/api.pengeflyt.com/privkey.pem;
 
-    return 301 https://$host$request_uri;
-
-    listen 443 ssl; # managed by Certbot
-
-    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+    location / {
+        proxy_pass http://localhost:8080;
+        include snippets/proxy-headers.conf;
+    }
 }
 
 server {
     listen 443 ssl;
     server_name cashflow.hanasand.com;
 
+    ssl_certificate /etc/letsencrypt/live/cashflow.hanasand.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/cashflow.hanasand.com/privkey.pem;
+
     location / {
-        proxy_pass http://localhost:10001;
+        proxy_pass http://localhost:3000;
         include snippets/proxy-headers.conf;
     }
 }
 
 server {
-    listen 443 ssl;
-    server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
+    listen 443 ssl default_server;
+    server_name _;
 
-    location / {
-        proxy_pass http://localhost:10001;
-        include snippets/proxy-headers.conf;
-    }
+    return 301 https://$host$request_uri;
 }
