@@ -1,0 +1,44 @@
+server {
+    if ($host = cashflow.hanasand.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    if ($host = pengeflyt.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    if ($host = www.pengeflyt.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    server_name pengeflyt.com cashflow.hanasand.com;
+
+    return 301 https://$host$request_uri;
+
+    listen 443 ssl; # managed by Certbot
+
+    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+server {
+    listen 443 ssl;
+    server_name pengeflyt.com www.pengeflyt.com;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        include snippets/proxy-headers.conf;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name cashflow.hanasand.com;
+
+    location / {
+        proxy_pass http://localhost:10001;
+        include snippets/proxy-headers.conf;
+    }
+}
