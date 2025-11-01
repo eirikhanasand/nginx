@@ -1,16 +1,16 @@
-server {
-    listen 80;
-    server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
-
-    # Let Certbot's HTTP challenge work
-    location /.well-known/acme-challenge/ {
-        root /var/www/html;
-        allow all;
-    }
-
-    # Everything else goes to your inner Nginx
-    location / {
-        proxy_pass http://localhost:10001;
-        include snippets/proxy-headers.conf;
-    }
-}
+# server {
+#     listen 80;
+#     server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
+#
+#     # Let Certbot's HTTP challenge work
+#     location /.well-known/acme-challenge/ {
+#         root /var/www/html;
+#         allow all;
+#     }
+#
+#     # Everything else goes to your inner Nginx
+#     location / {
+#         proxy_pass http://localhost:10001;
+#         include snippets/proxy-headers.conf;
+#     }
+# }
