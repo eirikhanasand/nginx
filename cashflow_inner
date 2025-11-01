@@ -1,6 +1,6 @@
 # server {
-#    listen 443 ssl;
-#    server_name pengeflyt.com www.pengeflyt.com;
+#     listen 443 ssl;
+#     server_name pengeflyt.com www.pengeflyt.com;
 
 #     ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
 #     ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
@@ -30,9 +30,32 @@
 
 # server {
 #     listen 80;
+#     server_name api.pengeflyt.com;
+
+#     location / {
+#         access_log /tmp/nginx-proxy-access.log upstreamlog;
+#         proxy_pass http://localhost:8080;
+#         include snippets/proxy-headers.conf;
+#     }
+# }
+
+# server {
+#     listen 80;
+#     server_name pengeflyt.com *.pengeflyt.com;
+
+#     location / {
+#         access_log /tmp/nginx-proxy-access.log upstreamlog;
+#         proxy_pass http://localhost:3000;
+#         include snippets/proxy-headers.conf;
+#     }
+# }
+
+# server {
+#     listen 80;
 #     server_name cashflow.hanasand.com;
 
 #     location / {
+#         access_log /tmp/nginx-proxy-access.log upstreamlog;
 #         proxy_pass http://localhost:3000;
 #         include snippets/proxy-headers.conf;
 #     }
