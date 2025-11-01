@@ -25,17 +25,28 @@ server {
 
 server {
     listen 443 ssl;
-    server_name pengeflyt.com www.pengeflyt.com;
+    server_name cashflow.hanasand.com;
 
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://localhost:10001;
         include snippets/proxy-headers.conf;
     }
 }
 
 server {
     listen 443 ssl;
-    server_name cashflow.hanasand.com;
+    server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
+
+    location / {
+        proxy_pass http://localhost:10001;
+        include snippets/proxy-headers.conf;
+    }
+}
+
+# temp to create cert
+server {
+    listen 80;
+    server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
 
     location / {
         proxy_pass http://localhost:10001;
