@@ -286,19 +286,3 @@ server {
         include snippets/proxy-headers.conf;
     }
 }
-
-stream {
-    map $ssl_preread_server_name $backend {
-        pengeflyt.com     127.0.0.1:10001;
-        www.pengeflyt.com 127.0.0.1:10001;
-        api.pengeflyt.com 127.0.0.1:10001;
-        default           127.0.0.1:443;
-    }
-
-    server {
-        listen 443;
-        proxy_pass $backend;
-
-        ssl_preread on;
-    }
-}
