@@ -11,7 +11,7 @@ server {
     listen [::]:80;
 
     server_name *.pengeflyt.com;
-    return 301 https://pengeflyt.com$request_uri;
+    return 301 https://$host$request_uri;
 }
 
 server {
