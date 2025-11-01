@@ -19,6 +19,8 @@ server {
 
     ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     location / {
         proxy_pass http://localhost:8080;
@@ -42,7 +44,8 @@ server {
 
     ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
-
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     return 301 https://$host$request_uri;
 }
