@@ -58,6 +58,11 @@ server {
     if ($host = cdn.hanasand.com) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
+
+    if ($host = cashflow.hanasand.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
     server_name *.hanasand.com;
 
     return 301 https://$host$request_uri;
@@ -265,6 +270,19 @@ server {
 
     location / {
         proxy_pass http://localhost:8501;
+        include snippets/proxy-headers.conf;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name cashflow.hanasand.com;
+
+    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
+
+    location / {
+        proxy_pass http://localhost:10001;
         include snippets/proxy-headers.conf;
     }
 }
