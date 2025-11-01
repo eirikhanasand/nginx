@@ -41,18 +41,7 @@
 
 # server {
 #     listen 80;
-#     server_name pengeflyt.com *.pengeflyt.com;
-
-#     location / {
-#         access_log /tmp/nginx-proxy-access.log upstreamlog;
-#         proxy_pass http://localhost:3000;
-#         include snippets/proxy-headers.conf;
-#     }
-# }
-
-# server {
-#     listen 80;
-#     server_name cashflow.hanasand.com;
+#     server_name pengeflyt.com *.pengeflyt.com cashflow.hanasand.com;
 
 #     location / {
 #         access_log /tmp/nginx-proxy-access.log upstreamlog;
