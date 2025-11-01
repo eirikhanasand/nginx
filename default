@@ -304,7 +304,7 @@ server {
     server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
 
     location / {
-        proxy_pass http://localhost:10002;
+        proxy_pass http://localhost:10001;
         include snippets/proxy-headers.conf;
     }
 }
