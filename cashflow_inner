@@ -7,6 +7,8 @@
 #     include /etc/letsencrypt/options-ssl-nginx.conf;
 #     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
+#     include snippets/errors.conf;
+
 #     location / {
 #         proxy_pass http://localhost:3000;
 #         include snippets/proxy-headers.conf;
@@ -22,6 +24,8 @@
 #     include /etc/letsencrypt/options-ssl-nginx.conf;
 #     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
+#     include snippets/errors.conf;
+
 #     location / {
 #         proxy_pass http://localhost:8080;
 #         include snippets/proxy-headers.conf;
@@ -32,6 +36,8 @@
 #     listen 80;
 #     server_name api.pengeflyt.com;
 
+#     include snippets/errors.conf;
+
 #     location / {
 #         proxy_pass http://localhost:8080;
 #         include snippets/proxy-headers.conf;
@@ -41,6 +47,8 @@
 # server {
 #     listen 80;
 #     server_name pengeflyt.com *.pengeflyt.com cashflow.hanasand.com;
+
+#     include snippets/errors.conf;
 
 #     location / {
 #         proxy_pass http://localhost:3000;
