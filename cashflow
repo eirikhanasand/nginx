@@ -20,6 +20,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
         proxy_pass http://localhost:10001;
         include snippets/proxy-headers.conf;

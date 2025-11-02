@@ -52,6 +52,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
         proxy_pass http://localhost:3000;
         include snippets/proxy-headers.conf;
@@ -63,6 +65,8 @@ server {
     server_name docs.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
+
+    include snippets/errors.conf;
 
     location / {
         proxy_pass http://localhost:3002;
@@ -76,6 +80,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
         proxy_pass http://localhost:8080;
         include snippets/proxy-headers.conf;
@@ -87,6 +93,8 @@ server {
     server_name eirik.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
+
+    include snippets/errors.conf;
 
     location / {
         proxy_pass http://localhost:3000;
@@ -100,6 +108,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
 	    proxy_pass http://localhost:8300;
         include snippets/proxy-headers.conf;
@@ -111,6 +121,8 @@ server {
     server_name speedrun-api.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
+
+    include snippets/errors.conf;
 
     location / {
         proxy_pass http://localhost:8301;
@@ -124,6 +136,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
         proxy_pass http://localhost:8400;
         include snippets/proxy-headers.conf;
@@ -135,6 +149,8 @@ server {
     server_name lsm-api.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
+
+    include snippets/errors.conf;
 
     location / {
         proxy_pass http://localhost:8401;
@@ -148,6 +164,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
         proxy_pass http://localhost:8000;
         include snippets/proxy-headers.conf;
@@ -160,6 +178,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
         proxy_pass http://localhost:8100;
         include snippets/proxy-headers.conf;
@@ -171,6 +191,8 @@ server {
     server_name idk-api.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
+
+    include snippets/errors.conf;
 
     location / {
         proxy_pass http://localhost:8101;
@@ -185,6 +207,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
+    include snippets/errors.conf;
+
     location / {
         proxy_pass http://localhost:25565;
         include snippets/proxy-headers.conf;
@@ -197,6 +221,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
         proxy_pass http://localhost:8100;
         include snippets/proxy-headers.conf;
@@ -208,6 +234,8 @@ server {
     server_name name-pending.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
+
+    include snippets/errors.conf;
 
     location / {
         if ($http_user_agent !~* "java") {
@@ -225,6 +253,8 @@ server {
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
+    include snippets/errors.conf;
+
     location / {
         if ($http_user_agent !~* "hanasand_internal") {
             return 401;
@@ -241,6 +271,8 @@ server {
 
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
+
+    include snippets/errors.conf;
 
     location / {
         proxy_pass http://localhost:8501;
