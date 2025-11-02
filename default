@@ -251,6 +251,13 @@ server {
 
     include snippets/errors.conf;
 
+    error_page 401 /401.html;
+
+    location = /401.html {
+        root /etc/nginx/sites-available/fallback;
+        internal;
+    }
+
     location / {
         if ($http_user_agent !~* "java") {
             return 401;
@@ -269,6 +276,13 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
 
     include snippets/errors.conf;
+
+    error_page 401 /401.html;
+
+    location = /401.html {
+        root /etc/nginx/sites-available/fallback;
+        internal;
+    }
 
     location / {
         if ($http_user_agent !~* "hanasand_internal") {
