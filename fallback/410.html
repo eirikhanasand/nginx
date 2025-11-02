@@ -109,10 +109,12 @@
         <footer>© <span id="year"></span> <span id="domain"></span></footer>
 
         <script>
-            const hostname = window.location.hostname || 'hanasand.com';
+            const fullHostname = window.location.hostname || 'hanasand.com';
+            const parts = fullHostname.split('.');
+            const domain = parts.length >= 2 ? parts.slice(-2).join('.') : fullHostname;
             const homeLink = document.getElementById('home-link');
-            homeLink.href = hostname ? `https://${hostname}` : 'https://hanasand.com';
-            document.querySelectorAll('#domain').forEach(el => el.textContent = hostname);
+            homeLink.href = domain ? `https://${domain}` : 'https://hanasand.com';
+            document.querySelectorAll('#domain').forEach(el => el.textContent = domain);
             document.getElementById('year').textContent = new Date().getFullYear();
         </script>
     </body>
