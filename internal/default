@@ -254,7 +254,7 @@ server {
     error_page 401 /401.html;
 
     location = /401.html {
-        root /etc/nginx/sites-available/fallback;
+        root /etc/nginx/sites-available/internal/fallback;
         internal;
     }
 
@@ -280,7 +280,7 @@ server {
     error_page 401 /401.html;
 
     location = /401.html {
-        root /etc/nginx/sites-available/fallback;
+        root /etc/nginx/sites-available/internal/fallback;
         internal;
     }
 
