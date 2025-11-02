@@ -239,7 +239,7 @@ server {
 
     location / {
         if ($http_user_agent !~* "java") {
-            return 401;
+            return 401 /401.html;
         }
 
         proxy_pass http://localhost:6969;
@@ -257,7 +257,7 @@ server {
 
     location / {
         if ($http_user_agent !~* "hanasand_internal") {
-            return 401;
+            return 401 /401.html;
         }
 
         proxy_pass http://localhost:8200;
