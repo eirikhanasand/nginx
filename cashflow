@@ -16,6 +16,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name pengeflyt.com www.pengeflyt.com api.pengeflyt.com;
     ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem; # managed by Certbot

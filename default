@@ -48,6 +48,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name hanasand.com www.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -62,6 +63,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name docs.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -76,6 +78,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name api.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -90,6 +93,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name eirik.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -104,6 +108,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name speedrun.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -118,6 +123,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name speedrun-api.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -132,6 +138,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name lsm.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -146,6 +153,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name lsm-api.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -160,6 +168,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name gitlab.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -174,6 +183,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name idk.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -188,6 +198,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name idk-api.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -202,6 +213,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name np.hanasand.com;
 
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
@@ -217,6 +229,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name name-pending-server.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -231,6 +244,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name name-pending.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -249,6 +263,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name internal.hanasand.com;
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
@@ -267,6 +282,7 @@ server {
 
 server {
     listen 443 ssl;
+    listen [::]:443 ssl;
     server_name cdn.hanasand.com;
 
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
