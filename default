@@ -68,7 +68,6 @@ server {
         proxy_pass http://localhost:3002;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -81,7 +80,6 @@ server {
         proxy_pass http://localhost:8080;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -94,7 +92,6 @@ server {
         proxy_pass http://localhost:3000;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -107,7 +104,6 @@ server {
 	    proxy_pass http://localhost:8300;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -120,7 +116,6 @@ server {
         proxy_pass http://localhost:8301;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -133,7 +128,6 @@ server {
         proxy_pass http://localhost:8400;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -146,7 +140,6 @@ server {
         proxy_pass http://localhost:8401;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -159,7 +152,6 @@ server {
         proxy_pass http://localhost:8000;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -172,7 +164,6 @@ server {
         proxy_pass http://localhost:8100;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -185,7 +176,6 @@ server {
         proxy_pass http://localhost:8101;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -211,7 +201,6 @@ server {
         proxy_pass http://localhost:8100;
         include snippets/proxy-headers.conf;
     }
-
 }
 
 server {
@@ -228,7 +217,22 @@ server {
         proxy_pass http://localhost:6969;
         include snippets/proxy-headers.conf;
     }
+}
 
+server {
+    listen 443 ssl;
+    server_name internal.hanasand.com;
+    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem; # managed by Certbot
+
+    location / {
+        if ($http_user_agent !~* "hanasand_internal") {
+            return 401;
+        }
+
+        proxy_pass http://localhost:8200;
+        include snippets/proxy-headers.conf;
+    }
 }
 
 server {
