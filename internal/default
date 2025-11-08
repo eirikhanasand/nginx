@@ -329,6 +329,10 @@ server {
 
     resolver 10.177.195.1 valid=10s ipv6=off;
 
+    location /debug {
+        return 200 "vm_target=$vm_target\n";
+    }
+
     location / {
         proxy_pass $vm_target;
         proxy_set_header Host $host;
