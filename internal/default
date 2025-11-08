@@ -311,13 +311,7 @@ server {
 }
 
 map $host $vm_target {
-    ~^([a-z0-9-]+-[a-z0-9-]+-[a-z0-9-]+)\.hanasand\.com$ https://$1.lxd:443;
-    default "";
-}
-
-
-map $host $vm_target {
-    ~^([a-z0-9-]+-[a-z0-9-]+-[a-z0-9-]+)\.hanasand\.com$ https://$1.lxd:443;
+    ~^([a-z0-9-]+-[a-z0-9-]+-[a-z0-9-]+)\.hanasand\.com$ https://$1.lxd:80;
     default "";
 }
 
