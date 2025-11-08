@@ -329,10 +329,10 @@ server {
 
     resolver 10.177.195.1 valid=10s ipv6=off;
 
-    log_format debug 'host=$host vm_target=$vm_target';
-    access_log /var/log/nginx/debug.log debug;
 
     location /debug {
+        log_format debug 'host=$host vm_target=$vm_target';
+        access_log /var/log/nginx/debug.log debug;
         return 200 "vm_target=$vm_target\n";
     }
 
