@@ -211,21 +211,21 @@ server {
     }
 }
 
-server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
-    server_name np.hanasand.com;
+# server {
+#     listen 443 ssl;
+#     listen [::]:443 ssl;
+#     server_name np.hanasand.com;
 
-    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
+#     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
+#     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
-    include snippets/errors.conf;
+#     include snippets/errors.conf;
 
-    location / {
-        proxy_pass http://localhost:25565;
-        include snippets/proxy-headers.conf;
-    }
-}
+#     location / {
+#         proxy_pass http://localhost:25565;
+#         include snippets/proxy-headers.conf;
+#     }
+# }
 
 server {
     listen 443 ssl;
