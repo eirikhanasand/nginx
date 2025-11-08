@@ -331,8 +331,6 @@ server {
 
 
     location /debug {
-        log_format debug 'host=$host vm_target=$vm_target';
-        access_log /var/log/nginx/debug.log debug;
         return 200 "vm_target=$vm_target\n";
     }
 
