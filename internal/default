@@ -216,7 +216,7 @@ server {
     include snippets/errors.conf;
 
     location / {
-#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8101;
         include snippets/proxy-headers.conf;
     }
@@ -239,7 +239,7 @@ server {
     }
 
     location / {
-#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         if ($http_user_agent !~* "java") {
             return 401;
         }
@@ -266,7 +266,7 @@ server {
     }
 
     location / {
-#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         if ($http_user_agent !~* "hanasand_internal") {
             return 401;
         }
@@ -287,7 +287,7 @@ server {
     include snippets/errors.conf;
 
     location / {
-#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8501;
         include snippets/proxy-headers.conf;
     }
@@ -313,7 +313,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass $vm_target;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
