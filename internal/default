@@ -54,6 +54,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -70,6 +71,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -86,6 +88,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -102,6 +105,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -118,6 +122,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -134,6 +139,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -150,6 +156,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -166,6 +173,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -182,6 +190,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -198,6 +207,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -214,6 +224,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -230,6 +241,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     error_page 401 /401.html;
 
@@ -257,6 +269,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     error_page 401 /401.html;
 
@@ -285,6 +298,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
     include snippets/errors.conf;
+    resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
@@ -309,7 +323,6 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     include snippets/errors.conf;
-
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
