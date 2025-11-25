@@ -10,8 +10,8 @@ server {
     listen 443 ssl;
     listen [::]:443 ssl;
     server_name hanasand.com www.hanasand.com;
-    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/hanasand.com.bak/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/hanasand.com.bak/privkey.pem;
 
 #    include snippets/errors.conf;
 
