@@ -265,21 +265,21 @@ server {
 
     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
-#    include /etc/letsencrypt/options-ssl-nginx.conf;
-#    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+#    include /etc/letsencrypt/options-ssl-nginx.conf; didnt matter
+#    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; didnt matter
 
     include snippets/errors.conf;
-#   resolver 10.177.195.1 valid=10s ipv6=off;
+#   resolver 10.177.195.1 valid=10s ipv6=off; didnt matter
 
     location / {
 #       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
-        proxy_pass $vm_target;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_ssl_verify off;
-        proxy_ssl_server_name on;
+#        proxy_pass $vm_target;
+#        proxy_set_header Host $host;
+#        proxy_set_header X-Real-IP $remote_addr;
+#        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#        proxy_set_header X-Forwarded-Proto $scheme;
+#        proxy_ssl_verify off;
+#        proxy_ssl_server_name on;
 
         error_page 502 = @fallback;
     }
