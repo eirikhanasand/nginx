@@ -57,7 +57,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:3000;
         include snippets/proxy-headers.conf;
     }
@@ -74,7 +74,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:3002;
         include snippets/proxy-headers.conf;
     }
@@ -91,7 +91,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8080;
         include snippets/proxy-headers.conf;
     }
@@ -108,7 +108,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:3000;
         include snippets/proxy-headers.conf;
     }
@@ -125,7 +125,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
 	    proxy_pass http://localhost:8300;
         include snippets/proxy-headers.conf;
     }
@@ -142,7 +142,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8301;
         include snippets/proxy-headers.conf;
     }
@@ -159,7 +159,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8400;
         include snippets/proxy-headers.conf;
     }
@@ -176,7 +176,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8401;
         include snippets/proxy-headers.conf;
     }
@@ -193,7 +193,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8000;
         include snippets/proxy-headers.conf;
     }
@@ -210,7 +210,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8100;
         include snippets/proxy-headers.conf;
     }
@@ -227,7 +227,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8101;
         include snippets/proxy-headers.conf;
     }
@@ -251,7 +251,7 @@ server {
     }
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         if ($http_user_agent !~* "java") {
             return 401;
         }
@@ -279,7 +279,7 @@ server {
     }
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         if ($http_user_agent !~* "hanasand_internal") {
             return 401;
         }
@@ -301,7 +301,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8501;
         include snippets/proxy-headers.conf;
     }
@@ -326,7 +326,7 @@ server {
     resolver 10.177.195.1 valid=10s ipv6=off;
 
     location / {
-        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+#       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass $vm_target;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
