@@ -2,23 +2,7 @@ server {
     listen 80;
     listen [::]:80;
 
-    server_name cashflow.hanasand.com;
-    return 301 https://pengeflyt.com$request_uri;
-}
-
-server {
-    listen 80;
-    listen [::]:80;
-
-    server_name api.cashflow.hanasand.com;
-    return 301 https://api.pengeflyt.com$request_uri;
-}
-
-server {
-    listen 80;
-    listen [::]:80;
-
-    server_name *.hanasand.com;
+    server_name hanasand.com *.hanasand.com;
     return 301 https://$host$request_uri;
 }
 
