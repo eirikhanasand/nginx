@@ -258,20 +258,20 @@ map $host $vm_target {
     default "";
 }
 
-server {
-    listen 443 ssl;
-    listen [::]:443 ssl;
-    server_name *.hanasand.com;
+#server {
+#    listen 443 ssl;
+#    listen [::]:443 ssl;
+#    server_name *.hanasand.com;
 
-    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
+#    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
+#    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 #    include /etc/letsencrypt/options-ssl-nginx.conf; didnt matter
 #    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; didnt matter
 
-    include snippets/errors.conf;
+#    include snippets/errors.conf;
 #   resolver 10.177.195.1 valid=10s ipv6=off; didnt matter
 
-    location / {
+#    location / {
 #       access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
 #        proxy_pass $vm_target;
 #        proxy_set_header Host $host;
@@ -281,10 +281,10 @@ server {
 #        proxy_ssl_verify off;
 #        proxy_ssl_server_name on;
 
-        error_page 502 = @fallback;
-    }
+#        error_page 502 = @fallback;
+#    }
 
-    location @fallback {
-        return 301 https://hanasand.com;
-    }
-}
+#    location @fallback {
+#        return 301 https://hanasand.com;
+#    }
+#}
