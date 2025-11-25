@@ -4,7 +4,7 @@ server {
 
     server_name hanasand.com *.hanasand.com;
 #   return 301 http://$host$request_uri;
-    return 301 http://localhost:3000;
+    return 301 http://192.99.32.185:3000;
 }
 
 server {
