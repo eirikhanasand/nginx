@@ -54,37 +54,37 @@ server {
     }
 }
 
-# server {
-#     listen 443 ssl;
-#     listen [::]:443 ssl;
-#     server_name speedrun.hanasand.com;
-#     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
-#     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name speedrun.hanasand.com;
+    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
-#     include snippets/errors.conf;
+    include snippets/errors.conf;
 
-#     location / {
-#         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
-# 	    proxy_pass http://localhost:8300;
-#         include snippets/proxy-headers.conf;
-#     }
-# }
+    location / {
+        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+	    proxy_pass http://localhost:8300;
+        include snippets/proxy-headers.conf;
+    }
+}
 
-# server {
-#     listen 443 ssl;
-#     listen [::]:443 ssl;
-#     server_name speedrun-api.hanasand.com;
-#     ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
-#     ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+    server_name speedrun-api.hanasand.com;
+    ssl_certificate /etc/letsencrypt/live/hanasand.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/hanasand.com/privkey.pem;
 
-#     include snippets/errors.conf;
+    include snippets/errors.conf;
 
-#     location / {
-#         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
-#         proxy_pass http://localhost:8301;
-#         include snippets/proxy-headers.conf;
-#     }
-# }
+    location / {
+        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
+        proxy_pass http://localhost:8301;
+        include snippets/proxy-headers.conf;
+    }
+}
 
 server {
     listen 443 ssl;
