@@ -128,6 +128,7 @@ server {
     include snippets/errors.conf;
 
     location / {
+        client_max_body_size 100M;
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
         proxy_pass http://localhost:8000;
         include snippets/proxy-headers.conf;
