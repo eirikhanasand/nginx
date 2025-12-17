@@ -127,6 +127,10 @@ server {
 
     include snippets/errors.conf;
 
+    location = / {
+        return 302 /explore/repos;
+    }
+
     location / {
         client_max_body_size 100M;
         access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
