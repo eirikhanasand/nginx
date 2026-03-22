@@ -73,11 +73,16 @@ server {
 
     include snippets/errors.conf;
 
-    location = /kitpvp-pack.zip {
-        alias /var/www/kitpvp-pack/kitpvp-bundled-pack.zip;
-        default_type application/zip;
-        add_header Cache-Control "public, max-age=300";
+    location / {
+        proxy_pass http://localhost:8080;
+        include snippets/proxy-headers.conf;
     }
+
+    # location = /kitpvp-pack.zip {
+    #     alias /var/www/kitpvp-pack/kitpvp-bundled-pack.zip;
+    #     default_type application/zip;
+    #     add_header Cache-Control "public, max-age=300";
+    # }
 }
 
 server {
