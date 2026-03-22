@@ -207,18 +207,18 @@ server {
 
     include snippets/errors.conf;
 
-#    error_page 401 /401.html;
+    error_page 401 /401.html;
 
-#    location = /401.html {
-#        root /etc/nginx/sites-available/internal/fallback;
-#        internal;
-#    }
+    location = /401.html {
+        root /etc/nginx/sites-available/internal/fallback;
+        internal;
+    }
 
     location / {
 #        access_by_lua_file /etc/nginx/lua/traffic_logger.lua;
-#        if ($http_user_agent !~* "hanasand_internal") {
-#            return 401;
-#        }
+        if ($http_user_agent !~* "hanasand_internal") {
+            return 401;
+        }
 
         proxy_pass http://localhost:8200;
         include snippets/proxy-headers.conf;
