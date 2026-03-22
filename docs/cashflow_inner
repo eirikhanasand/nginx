@@ -1,11 +1,4 @@
 server {
-    listen 80;
-    server_name pengeflyt.com *.pengeflyt.com;
-
-    return 301 https://$host$request_uri;
-}
-
-server {
     listen 443 ssl;
     server_name pengeflyt.com www.pengeflyt.com;
 
@@ -53,6 +46,43 @@ server {
 
     location / {
         proxy_pass http://localhost:8080;
+        include snippets/proxy-headers.conf;
+    }
+}
+
+server {
+    listen 80;
+    server_name api.pengeflyt.com;
+
+    include snippets/errors.conf;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        include snippets/proxy-headers.conf;
+    }
+}
+
+server {
+    listen 80;
+    server_name rp.pengeflyt.com;
+
+    include snippets/errors.conf;
+
+    location = /kitpvp-pack.zip {
+        alias /var/www/kitpvp-pack/kitpvp-bundled-pack.zip;
+        default_type application/zip;
+        add_header Cache-Control "public, max-age=300";
+    }
+}
+
+server {
+    listen 80;
+    server_name pengeflyt.com *.pengeflyt.com;
+
+    include snippets/errors.conf;
+
+    location / {
+        proxy_pass http://localhost:3000;
         include snippets/proxy-headers.conf;
     }
 }
