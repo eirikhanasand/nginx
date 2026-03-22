@@ -1,4 +1,11 @@
 server {
+    listen 80;
+    server_name pengeflyt.com *.pengeflyt.com;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
     listen 443 ssl;
     server_name pengeflyt.com www.pengeflyt.com;
 
@@ -17,36 +24,12 @@ server {
 
 server {
     listen 443 ssl;
-    server_name api.pengeflyt.com;
+    server_name rp.pengeflyt.com;
 
     ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-    include snippets/errors.conf;
-
-    location / {
-        proxy_pass http://localhost:8080;
-        include snippets/proxy-headers.conf;
-    }
-}
-
-server {
-    listen 80;
-    server_name api.pengeflyt.com;
-
-    include snippets/errors.conf;
-
-    location / {
-        proxy_pass http://localhost:8080;
-        include snippets/proxy-headers.conf;
-    }
-}
-
-server {
-    listen 80;
-    server_name rp.pengeflyt.com;
 
     include snippets/errors.conf;
 
@@ -58,13 +41,18 @@ server {
 }
 
 server {
-    listen 80;
-    server_name pengeflyt.com *.pengeflyt.com;
+    listen 443 ssl;
+    server_name api.pengeflyt.com;
+
+    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     include snippets/errors.conf;
 
     location / {
-        proxy_pass http://localhost:3000;
+        proxy_pass http://localhost:8080;
         include snippets/proxy-headers.conf;
     }
 }
