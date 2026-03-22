@@ -1,61 +1,4 @@
 server {
-    listen 443 ssl;
-    server_name pengeflyt.com www.pengeflyt.com;
-
-    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-    include snippets/errors.conf;
-
-    location / {
-        proxy_pass http://localhost:3000;
-        include snippets/proxy-headers.conf;
-    }
-}
-
-server {
-    listen 443 ssl;
-    server_name rp.pengeflyt.com;
-
-    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-    include snippets/errors.conf;
-
-    location = /kitpvp-pack.zip {
-        alias /var/www/kitpvp-pack/kitpvp-bundled-pack.zip;
-        default_type application/zip;
-        add_header Cache-Control "public, max-age=300";
-    }
-
-    location / {
-        proxy_pass http://localhost:8080;
-        include snippets/proxy-headers.conf;
-    }
-}
-
-# server {
-#     listen 443 ssl;
-#     server_name api.pengeflyt.com;
-
-#     ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
-#     ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
-#     include /etc/letsencrypt/options-ssl-nginx.conf;
-#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-#     include snippets/errors.conf;
-
-#     location / {
-#         proxy_pass http://localhost:8080;
-#         include snippets/proxy-headers.conf;
-#     }
-# }
-
-server {
     listen 80;
     server_name api.pengeflyt.com;
 
@@ -74,15 +17,14 @@ server {
     include snippets/errors.conf;
 
     location / {
-        proxy_pass http://localhost:8080;
-        include snippets/proxy-headers.conf;
+        return 404 '404 Not found.';
     }
 
-    # location = /kitpvp-pack.zip {
-    #     alias /var/www/kitpvp-pack/kitpvp-bundled-pack.zip;
-    #     default_type application/zip;
-    #     add_header Cache-Control "public, max-age=300";
-    # }
+    location = /kitpvp-pack.zip {
+        alias /var/www/kitpvp-pack/kitpvp-bundled-pack.zip;
+        default_type application/zip;
+        add_header Cache-Control "public, max-age=300";
+    }
 }
 
 server {
@@ -95,16 +37,4 @@ server {
         proxy_pass http://localhost:3000;
         include snippets/proxy-headers.conf;
     }
-}
-
-server {
-    listen 443 ssl default_server;
-    server_name _;
-
-    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf;
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
-
-    return 301 https://$host$request_uri;
 }
