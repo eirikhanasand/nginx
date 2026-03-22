@@ -1,41 +1,14 @@
-# server {
-#     listen 80;
-#     listen [::]:80;
-
-#     server_name api.pengeflyt.com;
-#     return 301 https://api.pengeflyt.com$request_uri;
-# }
-
 server {
-    listen 80;
-    listen [::]:80;
-
     server_name *.pengeflyt.com;
     return 301 https://$host$request_uri;
+
+    listen 443 ssl; # managed by Certbot
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/pengeflyt.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/pengeflyt.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
-
-
-# server {
-#     listen 80;
-#     listen [::]:80;
-#     server_name rp.pengeflyt.com;
-#     return 301 https://$host$request_uri;
-# }
-
-#server {
-#    listen 443 ssl http2;
-#    listen [::]:443 ssl http2;
-#    server_name rp.pengeflyt.com;
-
-#    ssl_certificate     /etc/letsencrypt/live/rp.pengeflyt.com/fullchain.pem;
-#    ssl_certificate_key /etc/letsencrypt/live/rp.pengeflyt.com/privkey.pem;
-
-#    location = /kitpvp-pack.zip {
-#        alias /var/www/kitpvp-pack/kitpvp-bundled-pack.zip;
-#        default_type application/zip;
-#        add_header Cache-Control "public, max-age=300";
-#    }
-#}
 
 server {
     listen 443 ssl;
@@ -50,4 +23,26 @@ server {
         proxy_pass http://localhost:10001;
         include snippets/proxy-headers.conf;
     }
+}
+
+server {
+    if ($host = rp.pengeflyt.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = api.pengeflyt.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = www.pengeflyt.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    listen 80;
+    listen [::]:80;
+
+    server_name *.pengeflyt.com;
+    return 404; # managed by Certbot
 }
