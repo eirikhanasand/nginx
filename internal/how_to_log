@@ -1,1 +1,0 @@
-# add access_log /tmp/nginx-proxy-access.log; to location block
