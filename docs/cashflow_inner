@@ -17,7 +17,8 @@ server {
     include snippets/errors.conf;
 
     location / {
-        return 404 '404 Not found.';
+        default_type text/plain;
+        return 404 '404 not found.';
     }
 
     location = /kitpvp-pack.zip {
